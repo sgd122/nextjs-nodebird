@@ -1,0 +1,7 @@
+.gitignore
+.prettierignore
+.eslintrc.js
+yarn.lock
+*.ttf
+*.woff
+*.woff2
