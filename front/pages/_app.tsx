@@ -5,6 +5,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import wrapper from 'store/configureStore';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -18,4 +19,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default App;
+export default wrapper.withRedux(App);

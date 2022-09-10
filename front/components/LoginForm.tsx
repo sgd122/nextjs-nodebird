@@ -2,7 +2,9 @@ import { Button, Form, Input } from 'antd';
 import React, { useCallback } from 'react';
 
 import Link from 'next/link';
+import { loginAction } from 'reducers';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
@@ -12,11 +14,8 @@ const FormWrapper = styled(Form)`
   padding: 10px;
 `;
 
-interface Props {
-  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const LoginForm: React.FC<Props> = ({ setIsLoggedIn }) => {
+const LoginForm: React.FC = () => {
+  const dispatch = useDispatch();
   const [id, setId] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -35,9 +34,8 @@ const LoginForm: React.FC<Props> = ({ setIsLoggedIn }) => {
   );
 
   const onSubmitForm = useCallback(() => {
-    console.log(id, password);
-    setIsLoggedIn(true);
-  }, [id, password, setIsLoggedIn]);
+    dispatch(loginAction({ id, password }));
+  }, [id, password]);
 
   return (
     <FormWrapper onFinish={onSubmitForm}>

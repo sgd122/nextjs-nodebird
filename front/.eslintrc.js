@@ -31,6 +31,7 @@ module.exports = {
         'react/prop-types': 'off',
         "react/function-component-definition": [2, { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }],
         "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }], //should add ".ts" if typescript project
+        "@typescript-eslint/default-param-last": "warn",
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
         "jsx-a11y/label-has-associated-control": "off",
