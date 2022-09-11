@@ -1,17 +1,19 @@
+import { IPost } from 'api';
 import { HYDRATE } from 'next-redux-wrapper';
-import { Post } from './post';
+
 import { LogInAction, LogOutAction, User } from './user';
+import { addPost } from './post';
 
 export const LOGIN = 'LOG_IN';
 export const LOGOUT = 'LOG_OUT';
 
 export interface IMainState {
   user: User;
-  post: Post;
+  post: IPost;
 }
 
 export type AuthActionType = LogOutAction | LogInAction;
-export type PostActionType = LogOutAction | LogInAction;
+export type PostActionType = typeof addPost;
 
 export type MainActionType =
   | AuthActionType
