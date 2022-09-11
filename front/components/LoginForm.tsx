@@ -2,7 +2,7 @@ import { Button, Form, Input } from 'antd';
 import React, { useCallback } from 'react';
 
 import Link from 'next/link';
-import { loginAction } from 'reducers';
+import { loginAction } from 'reducers/user';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 
