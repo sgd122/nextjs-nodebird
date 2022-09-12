@@ -1,11 +1,11 @@
 declare module 'api' {
-  type Image = {
+  export type PostImage = {
     src: string;
   };
 
   export interface IUser {
     id?: number;
-    nickname: string;
+    nickname?: string;
   }
 
   export interface IPost {
@@ -18,7 +18,7 @@ declare module 'api' {
     id: number;
     User: IUser;
     content: string;
-    Images?: Image[];
+    Images?: PostImage[];
     Comments?: {
       User: IUser;
       content: string;

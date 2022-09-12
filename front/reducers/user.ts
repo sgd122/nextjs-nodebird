@@ -1,29 +1,30 @@
+import { IUser } from 'api';
 import { AuthActionType, LOGIN, LOGOUT } from './types';
 
 export interface User {
   isLoggedIn: boolean;
-  user?: object | null;
+  me?: IUser | null;
   signUpData: object | null;
   loginData: object | null;
 }
 
 export const initialState: User = {
   isLoggedIn: false,
-  user: null,
+  me: null,
   signUpData: {},
   loginData: {},
 };
 
 export interface LogInAction {
   type: typeof LOGIN;
-  data: { id: string; password: string };
+  data: { id: number; password: string };
 }
 
 export interface LogOutAction {
   type: typeof LOGOUT;
 }
 
-export const loginAction = (data: { id: string; password: string }) => {
+export const loginAction = (data: { id: number; password: string }) => {
   return { type: 'LOG_IN', data };
 };
 
@@ -37,14 +38,14 @@ const reducer = (state = initialState, action: AuthActionType): User => {
       return {
         ...state,
         isLoggedIn: true,
-        user: action.data,
+        me: action.data,
       };
 
     case 'LOG_OUT':
       return {
         ...state,
         isLoggedIn: false,
-        user: null,
+        me: null,
       };
     default:
       return state;
