@@ -17,6 +17,9 @@ export const initialState: IPost = {
         {
           src: 'https://sgd122.github.io/images/banner.jpg',
         },
+        {
+          src: 'https://sgd122.github.io/images/banner.jpg',
+        },
       ],
       Comments: [
         {
