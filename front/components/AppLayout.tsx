@@ -5,9 +5,24 @@ import LoginForm from 'components/LoginForm';
 import React from 'react';
 import { RootState } from 'reducers';
 import UserProfile from 'components/UserProfile';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { useSelector } from 'react-redux';
 
+const Global = createGlobalStyle`
+  .ant-row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .ant-col:first-child {
+    padding-left: 0 !important;
+  }
+  
+  .ant-col:last-child {
+    padding-right: 0 !important;
+  }
+
+`;
 interface Props {
   children: React.ReactNode;
 }
@@ -20,6 +35,7 @@ const AppLayout: React.FC<Props> = ({ children }) => {
   const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
   return (
     <div>
+      <Global />
       <Menu mode="horizontal">
         <Menu.Item>
           <Link href="/">Home</Link>
