@@ -11,6 +11,7 @@ import React, { Fragment, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'reducers';
 import CommentForm from './CommentForm';
+import PostCardContent from './PostCardContent';
 import PostImages from './PostImages';
 
 interface Props {
@@ -63,7 +64,7 @@ const PostCard: React.FC<Props> = ({ post }) => {
         <Card.Meta
           avatar={<Avatar>{post.User.nickname?.[0]}</Avatar>}
           title={post.User.nickname}
-          description={post.content}
+          description={<PostCardContent postData={post.content} />}
         />
       </Card>
       {commentFormOpened && (
